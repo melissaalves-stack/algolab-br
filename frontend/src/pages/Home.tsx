@@ -1,5 +1,4 @@
 // Página principal: orquestra todos os componentes.
-// Segue o fluxo: selecionar algoritmo → configurar input → executar → animar.
 
 import { useState } from "react"
 import type { Algorithm, ExecutionStep } from "@/domain/Algorithm"
@@ -12,53 +11,75 @@ import { ArrayVisualizer } from "@/components/visualizers/ArrayVisualizer"
 import { HashMapVisualizer } from "@/components/visualizers/HashMapVisualizer"
 import { TreeVisualizer, type TreeNode } from "@/components/visualizers/TreeVisualizer"
 import { GraphVisualizer } from "@/components/visualizers/GraphVisualizer"
+import { StackQueueVisualizer } from "@/components/visualizers/StackQueueVisualizer"
 
-// Escolhe o visualizador correto com base no algoritmo e no passo atual
 function renderVisualizer(algorithm: Algorithm, step: ExecutionStep) {
   const s = step.state as Record<string, unknown>
   const highlighted = step.highlighted as number[]
 
-  if (algorithm.category === "array") {
-    return (
-      <ArrayVisualizer
-        array={(s.array as number[]) ?? []}
-        highlighted={highlighted}
-        description={step.description}
-      />
-    )
+  // Ordenação e busca em array
+  if (["bubble_sort", "merge_sort", "quick_sort", "heap_sort", "binary_search", "two_pointers"].includes(algorithm.id)) {
+    return <ArrayVisualizer array={(s.array as number[]) ?? []} highlighted={highlighted} description={step.description} />
   }
-  if (algorithm.category === "hash_map") {
-    return (
-      <HashMapVisualizer
-        input={(s.input as unknown[]) ?? []}
-        map={(s.map as Record<string, number>) ?? {}}
-        currentIndex={(s.current_index as number) ?? -1}
-        description={step.description}
-      />
-    )
+
+  // Pilha
+  if (algorithm.id === "stack") {
+    return <StackQueueVisualizer
+      items={(s.stack as unknown[]) ?? []}
+      highlighted={highlighted}
+      description={step.description}
+      type="stack"
+      operation={s.operation as string}
+      removed={s.removed}
+    />
   }
-  if (algorithm.category === "tree") {
-    return (
-      <TreeVisualizer
-        tree={s.tree as TreeNode}
-        visited={(s.visited as number[]) ?? []}
-        current={(s.current as number) ?? null}
-        description={step.description}
-      />
-    )
+
+  // Fila
+  if (algorithm.id === "queue") {
+    return <StackQueueVisualizer
+      items={(s.queue as unknown[]) ?? []}
+      highlighted={highlighted}
+      description={step.description}
+      type="queue"
+      operation={s.operation as string}
+      removed={s.removed}
+    />
   }
-  if (algorithm.category === "graph") {
-    return (
-      <GraphVisualizer
-        graph={(s.graph as Record<string, string[]>) ?? {}}
-        visited={(s.visited as string[]) ?? []}
-        current={(s.current as string) ?? null}
-        stack={(s.stack as string[]) ?? []}
-        description={step.description}
-      />
-    )
+
+  // Hash map
+  if (algorithm.id === "hash_map_frequency") {
+    return <HashMapVisualizer
+      input={(s.input as unknown[]) ?? []}
+      map={(s.map as Record<string, number>) ?? {}}
+      currentIndex={(s.current_index as number) ?? -1}
+      description={step.description}
+    />
   }
-  return <p>Visualizador não disponível para essa categoria.</p>
+
+  // Árvores (BFS, DFS, BST)
+  if (["bfs_tree", "dfs_tree", "bst"].includes(algorithm.id)) {
+    const treeData = (s.tree as TreeNode) ?? null
+    if (!treeData) return <p className="step-description">{step.description}</p>
+    return <TreeVisualizer
+      tree={treeData}
+      visited={(s.visited as number[]) ?? []}
+      current={(s.current as number) ?? null}
+      description={step.description}
+    />
+  }
+
+  // Grafo
+  if (algorithm.id === "dfs_graph") {
+    return <GraphVisualizer
+      graph={(s.graph as Record<string, string[]>) ?? {}}
+      visited={(s.visited as string[]) ?? []}
+      current={(s.current as string) ?? null}
+      stack={(s.stack as string[]) ?? []}
+      description={step.description}
+    />
+  }
+
+  return <p className="step-description">{step.description}</p>
 }
 
 export function Home() {
@@ -107,9 +128,7 @@ export function Home() {
               isLoading={runner.isLoading}
             />
 
-            {runner.error && (
-              <p className="error">{runner.error}</p>
-            )}
+            {runner.error && <p className="error">{runner.error}</p>}
 
             {runner.result && runner.currentStep && (
               <>

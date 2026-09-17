@@ -223,3 +223,68 @@ body {
 .empty-state { display: flex; align-items: center; justify-content: center; height: 60vh; color: var(--text-muted); }
 .loading, .error { padding: 32px; text-align: center; color: var(--text-muted); }
 .error { color: var(--danger); }
+
+/* ─── Pilha e Fila ─────────────────────────────────────── */
+.sq-visualizer { display: flex; flex-direction: column; gap: 12px; }
+.sq-container { display: flex; gap: 6px; align-items: flex-end; }
+.sq-stack { flex-direction: column; align-items: center; }
+.sq-queue { flex-direction: row; align-items: stretch; }
+.sq-item {
+  background: var(--surface);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 60px;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.sq-item--active { background: var(--accent); color: #fff; }
+.sq-value { font-weight: 700; font-size: 1rem; }
+.sq-label { font-size: 0.65rem; color: var(--text-muted); background: var(--bg); padding: 1px 4px; border-radius: 3px; }
+.sq-item--active .sq-label { color: rgba(255,255,255,0.7); background: rgba(0,0,0,0.2); }
+.sq-empty { color: var(--text-muted); font-style: italic; }
+.sq-info { display: flex; gap: 20px; font-size: 0.82rem; color: var(--text-muted); }
+.sq-removed { color: var(--accent-highlight); font-size: 0.85rem; }
+
+/* ─── Operações (pilha/fila) ───────────────────────────── */
+.ops-preview { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; min-height: 32px; }
+.op-badge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.op-remove { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.9rem; padding: 0 2px; }
+.op-remove:hover { color: var(--danger); }
+.ops-btns { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.op-add-btn {
+  background: var(--border);
+  border: none;
+  color: var(--text);
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.op-add-btn:hover { background: var(--accent); color: #fff; }
+.op-add-btn.danger:hover { background: var(--danger); }
+
+/* ─── Select input ─────────────────────────────────────── */
+.select-input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+}
+.select-input:focus { border-color: var(--accent); }
