@@ -1,6 +1,6 @@
 <div align="center">
 
-# algo·visual
+# algolab
 
 **Step through algorithms. Watch them think.**
 
@@ -17,7 +17,7 @@
 
 ## English
 
-algo·visual is an interactive algorithm visualizer for CS students. Pick an algorithm, give it an input, and watch each step play out — pausing, rewinding, and stepping through at your own pace.
+algolab is an interactive algorithm visualizer for CS students. Pick an algorithm, give it an input, and watch each step play out — pausing, rewinding, and stepping through at your own pace.
 
 ### Algorithms
 
@@ -35,7 +35,7 @@ algo·visual is an interactive algorithm visualizer for CS students. Pick an alg
 The project follows **Clean Architecture / Ports & Adapters**:
 
 ```
-algo-visual/
+algolab/
 ├── api/                  # Vercel Serverless Functions (Python)
 ├── frontend/             # React + TypeScript + Vite
 │   └── src/
@@ -88,7 +88,7 @@ The `vercel.json` at the root handles everything: it builds the frontend, routes
 
 ## Português
 
-algo·visual é um visualizador interativo de algoritmos para estudantes de Ciência da Computação. Escolha um algoritmo, forneça um input, e assista cada passo se desenrolar — pausando, voltando e avançando no seu ritmo.
+algolab é um visualizador interativo de algoritmos para estudantes de Ciência da Computação. Escolha um algoritmo, forneça um input, e assista cada passo se desenrolar — pausando, voltando e avançando no seu ritmo.
 
 ### Algoritmos
 
@@ -106,7 +106,7 @@ algo·visual é um visualizador interativo de algoritmos para estudantes de Ciê
 O projeto segue **Clean Architecture / Ports & Adapters**:
 
 ```
-algo-visual/
+algolab/
 ├── api/                  # Vercel Serverless Functions (Python)
 ├── frontend/             # React + TypeScript + Vite
 │   └── src/

@@ -77,7 +77,7 @@ export function Home() {
   return (
     <div className="layout">
       <aside className="sidebar">
-        <h1 className="app-title">algo·visual</h1>
+        <h1 className="app-title">algolab</h1>
         <AlgorithmSelector
           algorithms={algorithms}
           selectedId={selectedAlgo?.id ?? null}

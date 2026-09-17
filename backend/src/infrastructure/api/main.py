@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from src.infrastructure.api.routers import algorithms, executions
 
 app = FastAPI(
-    title="Algo Visual API",
+    title="AlgoLab API",
     description="API que executa algoritmos passo a passo para visualização.",
     version="1.0.0",
 )
