@@ -1,0 +1,225 @@
+/* Variáveis de cor — troque aqui para mudar o tema inteiro */
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --border: #2e3147;
+  --text: #e2e8f0;
+  --text-muted: #8892a4;
+  --accent: #6c8cff;
+  --accent-highlight: #ffd166;
+  --success: #4ade80;
+  --danger: #f87171;
+  --radius: 8px;
+  --font: "Inter", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Layout principal: sidebar + conteúdo */
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 24px 16px;
+  overflow-y: auto;
+}
+
+.app-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.main-content {
+  padding: 32px;
+  overflow-y: auto;
+}
+
+/* Seletor de algoritmos */
+.category-group { margin-bottom: 20px; }
+.category-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.algo-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background 0.15s;
+}
+.algo-btn:hover { background: var(--border); }
+.algo-btn.selected { background: var(--accent); color: #fff; }
+
+/* Cabeçalho do algoritmo */
+.algo-header { margin-bottom: 24px; }
+.algo-header h2 { font-size: 1.5rem; margin-bottom: 6px; }
+.algo-description { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; }
+.complexity-badges { display: flex; gap: 12px; }
+.complexity-badges span {
+  font-size: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  color: var(--text-muted);
+}
+
+/* Input panel */
+.input-panel { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; margin-bottom: 24px; }
+.input-field { display: flex; flex-direction: column; gap: 4px; }
+.input-field label { font-size: 0.8rem; color: var(--text-muted); }
+.input-field input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  outline: none;
+  width: 240px;
+}
+.input-field input:focus { border-color: var(--accent); }
+.demo-note { font-size: 0.8rem; color: var(--text-muted); font-style: italic; align-self: center; }
+.run-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 9px 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.run-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Barra de controles */
+.control-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.control-bar button {
+  background: var(--border);
+  border: none;
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.control-bar button:hover:not(:disabled) { background: var(--accent); color: #fff; }
+.control-bar button:disabled { opacity: 0.3; cursor: not-allowed; }
+.step-counter { margin-left: auto; font-size: 0.85rem; color: var(--text-muted); }
+
+/* Visualizadores */
+.visualizer {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.step-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  min-height: 1.4em;
+}
+
+/* Array */
+.bars-container { display: flex; align-items: flex-end; gap: 4px; height: 180px; }
+.bar {
+  flex: 1;
+  background: var(--accent);
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0.7;
+  transition: height 0.15s ease;
+  min-width: 24px;
+  position: relative;
+}
+.bar--highlighted { background: var(--accent-highlight); opacity: 1; }
+.bar-value { font-size: 0.7rem; color: var(--bg); padding-top: 4px; font-weight: 700; }
+
+/* Hash map */
+.hm-layout { display: flex; gap: 32px; align-items: flex-start; }
+.hm-section-title { display: block; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px; }
+.hm-array { display: flex; gap: 6px; flex-wrap: wrap; }
+.hm-cell {
+  padding: 6px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background 0.15s;
+}
+.hm-cell--active { background: var(--accent-highlight); color: var(--bg); border-color: var(--accent-highlight); }
+.hm-map { display: flex; flex-direction: column; gap: 4px; }
+.hm-entry { display: flex; gap: 8px; align-items: center; }
+.hm-key { font-weight: 700; min-width: 30px; }
+.hm-arrow { color: var(--text-muted); }
+.hm-count { color: var(--accent); font-weight: 700; }
+.hm-empty { color: var(--text-muted); font-style: italic; }
+
+/* Árvore */
+.tree-edge { stroke: var(--border); stroke-width: 2; }
+.tree-node { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+.tree-node--visited { fill: var(--accent); }
+.tree-node--current { fill: var(--accent-highlight); stroke: var(--accent-highlight); }
+.tree-label { fill: var(--text); font-size: 13px; font-weight: 700; }
+
+/* Grafo */
+.graph-edge { stroke: var(--border); stroke-width: 2; }
+.graph-node { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+.graph-node--visited { fill: var(--accent); stroke: var(--accent); }
+.graph-node--current { fill: var(--accent-highlight); stroke: var(--accent-highlight); }
+.graph-node--in-stack { fill: var(--surface); stroke: var(--accent); stroke-dasharray: 4; }
+.graph-label { fill: var(--text); font-size: 13px; font-weight: 700; }
+.graph-legend { display: flex; gap: 16px; margin-top: 12px; }
+.legend-item { font-size: 0.75rem; color: var(--text-muted); }
+.legend-item::before { content: "●"; margin-right: 4px; }
+.legend-item--current::before { color: var(--accent-highlight); }
+.legend-item--visited::before { color: var(--accent); }
+.legend-item--stack::before { color: var(--border); }
+
+/* Estados gerais */
+.empty-state { display: flex; align-items: center; justify-content: center; height: 60vh; color: var(--text-muted); }
+.loading, .error { padding: 32px; text-align: center; color: var(--text-muted); }
+.error { color: var(--danger); }
