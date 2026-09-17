@@ -6,10 +6,12 @@
 
 [🇧🇷 Português](#português) · [🇺🇸 English](#english)
 
-[![Demo](https://img.shields.io/badge/demo-live-6c8cff?style=flat-square)](https://your-deploy-url.vercel.app)
+[![Demo](https://img.shields.io/badge/demo-live-6c8cff?style=flat-square)](https://algolab-br-j3vd-n1ryq8k5e-melissaalves-stacks-projects.vercel.app)
 [![License](https://img.shields.io/badge/license-MIT-4ade80?style=flat-square)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.12-blue?style=flat-square)](https://python.org)
 [![TypeScript](https://img.shields.io/badge/typescript-5-3178c6?style=flat-square)](https://typescriptlang.org)
+
+**[→ abrir o app](https://algolab-br-j3vd-n1ryq8k5e-melissaalves-stacks-projects.vercel.app)**
 
 </div>
 
@@ -23,11 +25,18 @@ algolab is an interactive algorithm visualizer for CS students. Pick an algorith
 
 | Category | Algorithm | Time | Space |
 |---|---|---|---|
-| Array | Bubble Sort | O(n²) | O(1) |
-| Array | Binary Search | O(log n) | O(1) |
-| Array | Two Pointers | O(n) | O(1) |
-| Hash Map | Frequency Count | O(n) | O(n) |
+| Sorting | Bubble Sort | O(n²) | O(1) |
+| Sorting | Merge Sort | O(n log n) | O(n) |
+| Sorting | Quick Sort | O(n log n) | O(log n) |
+| Sorting | Heap Sort | O(n log n) | O(1) |
+| Search | Binary Search | O(log n) | O(1) |
+| Search | Two Pointers | O(n) | O(1) |
+| Linear | Stack | O(1) per op | O(n) |
+| Linear | Queue | O(1) per op | O(n) |
+| Hash | Frequency Count | O(n) | O(n) |
 | Tree | BFS | O(n) | O(n) |
+| Tree | DFS (pre/in/post) | O(n) | O(h) |
+| Tree | BST Insert & Search | O(log n) avg | O(n) |
 | Graph | DFS | O(V+E) | O(V) |
 
 ### Architecture
@@ -75,30 +84,30 @@ VITE_API_URL=http://localhost:8000 npm run dev
 cd backend && pytest tests/ -v
 ```
 
-### Deploying to Vercel
-
-```bash
-npm i -g vercel
-vercel
-```
-
-The `vercel.json` at the root handles everything: it builds the frontend, routes `/api/*` to the serverless Python functions, and serves the static output from `frontend/dist`.
-
 ---
 
 ## Português
 
 algolab é um visualizador interativo de algoritmos para estudantes de Ciência da Computação. Escolha um algoritmo, forneça um input, e assista cada passo se desenrolar — pausando, voltando e avançando no seu ritmo.
 
+**[→ abrir o app](https://algolab-br-j3vd-n1ryq8k5e-melissaalves-stacks-projects.vercel.app)**
+
 ### Algoritmos
 
 | Categoria | Algoritmo | Tempo | Espaço |
 |---|---|---|---|
-| Array | Bubble Sort | O(n²) | O(1) |
-| Array | Binary Search | O(log n) | O(1) |
-| Array | Two Pointers | O(n) | O(1) |
-| Hash Map | Contagem de Frequência | O(n) | O(n) |
+| Ordenação | Bubble Sort | O(n²) | O(1) |
+| Ordenação | Merge Sort | O(n log n) | O(n) |
+| Ordenação | Quick Sort | O(n log n) | O(log n) |
+| Ordenação | Heap Sort | O(n log n) | O(1) |
+| Busca | Binary Search | O(log n) | O(1) |
+| Busca | Two Pointers | O(n) | O(1) |
+| Linear | Pilha (Stack) | O(1) por op | O(n) |
+| Linear | Fila (Queue) | O(1) por op | O(n) |
+| Hash | Frequência | O(n) | O(n) |
 | Árvore | BFS | O(n) | O(n) |
+| Árvore | DFS (pré/in/pós) | O(n) | O(h) |
+| Árvore | BST — Inserção e Busca | O(log n) médio | O(n) |
 | Grafo | DFS | O(V+E) | O(V) |
 
 ### Arquitetura
@@ -145,15 +154,6 @@ VITE_API_URL=http://localhost:8000 npm run dev
 ```bash
 cd backend && pytest tests/ -v
 ```
-
-### Deploy no Vercel
-
-```bash
-npm i -g vercel
-vercel
-```
-
-O `vercel.json` na raiz cuida de tudo: faz o build do frontend, roteia `/api/*` para as serverless functions Python, e serve o output estático de `frontend/dist`.
 
 ---
 
