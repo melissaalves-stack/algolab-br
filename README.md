@@ -158,5 +158,5 @@ O `vercel.json` na raiz cuida de tudo: faz o build do frontend, roteia `/api/*` 
 ---
 
 <div align="center">
-  <sub>Built by <a href="https://linkedin.com/in/melissahoalves">Melissa Alves</a> · UNIFAL-MG · AWS Student Builder</sub>
+  <sub>Melissa Alves</sub>
 </div>
