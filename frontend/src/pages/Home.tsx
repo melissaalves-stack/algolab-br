@@ -10,7 +10,7 @@ import { InputPanel } from "@/components/InputPanel/InputPanel"
 import { ControlBar } from "@/components/ControlBar/ControlBar"
 import { ArrayVisualizer } from "@/components/visualizers/ArrayVisualizer"
 import { HashMapVisualizer } from "@/components/visualizers/HashMapVisualizer"
-import { TreeVisualizer } from "@/components/visualizers/TreeVisualizer"
+import { TreeVisualizer, type TreeNode } from "@/components/visualizers/TreeVisualizer"
 import { GraphVisualizer } from "@/components/visualizers/GraphVisualizer"
 
 // Escolhe o visualizador correto com base no algoritmo e no passo atual
@@ -40,7 +40,7 @@ function renderVisualizer(algorithm: Algorithm, step: ExecutionStep) {
   if (algorithm.category === "tree") {
     return (
       <TreeVisualizer
-        tree={s.tree as { value: number; left?: unknown; right?: unknown }}
+        tree={s.tree as TreeNode}
         visited={(s.visited as number[]) ?? []}
         current={(s.current as number) ?? null}
         description={step.description}

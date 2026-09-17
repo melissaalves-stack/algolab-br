@@ -2,7 +2,7 @@
 // Nós visitados ficam destacados; o nó atual tem cor diferente.
 // Usa layout recursivo simples: nó raiz no topo, filhos abaixo.
 
-interface TreeNode {
+export interface TreeNode {
   value: number
   left?: TreeNode | null
   right?: TreeNode | null
